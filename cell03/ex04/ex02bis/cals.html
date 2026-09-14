@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="left">
+    <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="right">
+    
+    <input type="button" value="Try me!" id="btn-calc">
+
+    <script>
+        $(document).ready(function() {
+            
+            $('#btn-calc').click(function() {
+                
+                const lStr = $('#left').val();
+                const rStr = $('#right').val();
+                const op = $('#op').val();
+
+                if (lStr === '' || rStr === '' || isNaN(lStr) || isNaN(rStr) || Number(lStr) < 0 || Number(rStr) < 0) {
+                    alert('Error :(');
+                    return;
+                }
+                const l = Number(lStr);
+                const r = Number(rStr);
+                let res;
+
+                if ((op === '/' || op === '%') && r === 0) {
+                    alert("It’s over 9000!");
+                    console.log("It’s over 9000!");
+                    return;
+                }
+                if (op === '+') res = l + r;
+                if (op === '-') res = l - r;
+                if (op === '*') res = l * r;
+                if (op === '/') res = l / r;
+                if (op === '%') res = l % r;
+
+                alert(res);
+                console.log(res);
+            });
+            setInterval(function() {
+                alert('Please, use me...');
+            }, 30000);
+
+        });
+    </script>
+
+</body>
+</html>
