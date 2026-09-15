@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>It's over 9000</title>
     <link rel="stylesheet" href="calc.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="cal.js"></script>
 </head>
 <body>
     <div class="calculator">
@@ -14,11 +12,14 @@
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
+            <option value="/" style="display:none;"></option> 
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
         <input type="text" id="right-op" placeholder="Right operand">
         <input type="submit" id="btn-submit" value="Try me!">
     </div>
+
+    <script src="cal.js"></script>
 </body>
 </html>
