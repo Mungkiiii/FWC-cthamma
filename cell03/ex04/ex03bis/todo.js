@@ -3,35 +3,44 @@ const getCookie = (n) => {
     let m = document.cookie.match(new RegExp('(^| )' + n + '=([^;]+)'));
     return m ? JSON.parse(decodeURIComponent(m[2])) : [];
 }
+
 $(document).ready(function() {
     const oldTasks = getCookie("todo");
-    $.each(oldTasks, function(index, text) {
-        addTask(text, false);
-    });  
+    for (let i = oldTasks.length - 1; i >= 0; i--) {
+        addTask(oldTasks[i], true);
+    }
+    
     $('#newBtn').click(function() {
         let t = prompt("New Task:");
         if (t && t.trim()) {
-            addTask(t, true);
+            addTask(t.trim(), true);
             save();
         }
     });
 
-});
-function addTask(text, isNew) {
-    let $div = $('<div>').text(text);
-    $div.click(function() {
-        if (confirm("Remove?")) {
-            $(this).remove(); 
-            save();   
+    function addTask(text, isNew) {
+        let $div = $('<div>').text(text);
+        
+        $div.click(function() {
+            if (confirm("Remove?")) {
+                $(this).remove(); 
+                save();   
+            }
+        });
+
+        const $list = $('#ft_list');
+        if (isNew) {
+            $list.prepend($div);
+        } else {
+            $list.append($div);
         }
-    });
-    const $list = $('#ft_list');
-    isNew ? $list.prepend($div) : $list.append($div);
-}
-function save() {
-    let tasks = $('#ft_list').children().map(function() {
-        return $(this).text();
-    }).get(); 
-    
-    setCookie("todo", tasks);
-}
+    }
+
+    function save() {
+        let tasks = $('#ft_list').children().map(function() {
+            return $(this).text();
+        }).get(); 
+        
+        setCookie("todo", tasks);
+    }
+});

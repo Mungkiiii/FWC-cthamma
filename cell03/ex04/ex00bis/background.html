@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="backgroound.css">
-    <title>Color Switcher</title>
+    <title>Pure HTML Color Switcher</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="background.js"></script>
 </head>
 <body>
-    <button>
-        Click me
-    </button>
-
-    <script>
-        $(document).ready(function(){
-            $("button").click(function(){
-                var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                $("body").css("background-color", randomColor);
-            });
-        });
-    </script>
-
+    <button id="btn">Click me</button>
 </body>
 </html>
