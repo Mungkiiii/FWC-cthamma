@@ -4,7 +4,6 @@ $(document).ready(function() {
     }
 
     function calculate() {
-        // ใช้ .val() ดึงค่าจาก input/select
         const leftStr = $('#left-op').val();
         const rightStr = $('#right-op').val();
         const op = $('#operator').val();
@@ -36,10 +35,8 @@ $(document).ready(function() {
         console.log(result);
     }
 
-    // ใช้ .click() ดักจับเหตุการณ์การกดปุ่ม
     $('#btn-submit').click(calculate);
 
-    // ตั้งเวลาแจ้งเตือนทุกๆ 30 วินาที
     setInterval(() => {
         alert('Please, use me...');
     }, 30000);
