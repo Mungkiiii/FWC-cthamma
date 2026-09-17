@@ -2,7 +2,7 @@
     --dark: #231028;
     --purple: #8f319b;
     --light: #f4f7fb;
-    --text: #263247;
+    --text: #3a2647;
     --white: #ffffff;
 }
 
@@ -165,6 +165,13 @@ body {
 
 .project {
     margin-top: 20px;
+}
+.project-image {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
 }
 
 .contact {
